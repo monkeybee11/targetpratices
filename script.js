@@ -4,7 +4,7 @@ var bigtop = document.getElementById("bigtop");
 
 import { DiscordSDK } from "https://cdn.jsdelivr.net/npm/@discord/embedded-app-sdk@latest/dist/embedded.esm.js";
 
-const discordSdk = new DiscordSDK("YOUR_APPLICATION_ID");
+const discordSdk = new DiscordSDK("1458866454769303716");
 
 async function init() {
     await discordSdk.ready();
@@ -175,4 +175,5 @@ function volMID(volMID) {
 function volMUTE(volMUTE) {
 	bigtop.volume= 0.0;
 }
+
 
