@@ -2,6 +2,17 @@ var counter = 0
 var timerr = 60
 var bigtop = document.getElementById("bigtop");
 
+import { DiscordSDK } from "https://cdn.jsdelivr.net/npm/@discord/embedded-app-sdk@latest/dist/embedded.esm.js";
+
+const discordSdk = new DiscordSDK("YOUR_APPLICATION_ID");
+
+async function init() {
+    await discordSdk.ready();
+    console.log("Discord Activity Ready!");
+}
+
+init();
+
 function squrt(target) {
 	
 	target.classList.add("wet");
@@ -164,3 +175,4 @@ function volMID(volMID) {
 function volMUTE(volMUTE) {
 	bigtop.volume= 0.0;
 }
+
