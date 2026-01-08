@@ -9,6 +9,7 @@ const discordSdk = new DiscordSDK("1458866454769303716");
 async function init() {
     await discordSdk.ready();
     console.log("Discord Activity Ready!");
+	const { input } = await discordSdk.commands.requestInput({type: "mouse",});
 }
 
 init();
@@ -175,5 +176,6 @@ function volMID(volMID) {
 function volMUTE(volMUTE) {
 	bigtop.volume= 0.0;
 }
+
 
 
