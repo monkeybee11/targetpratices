@@ -9,7 +9,27 @@ const discordSdk = new DiscordSDK("1458866454769303716");
 async function init() {
     await discordSdk.ready();
     console.log("Discord Activity Ready!");
-	const { input } = await discordSdk.commands.requestInput({type: "mouse",});
+
+    // 1. Ask Discord for permission to use the Activity
+    const { code } = await discordSdk.commands.authorize({
+        client_id: "1458866454769303716",
+        response_type: "code",
+        state: "",
+        prompt: "none",
+        scope: ["identify", "guilds", "applications.commands"],
+    });
+
+    // 2. Complete authentication
+    const auth = await discordSdk.commands.authenticate({ code });
+
+    console.log("Authenticated:", auth);
+
+    // 3. NOW request mouse input
+    const { input } = await discordSdk.commands.requestInput({
+        type: "mouse",
+    });
+
+    console.log("Mouse input enabled:", input);
 }
 
 init();
@@ -176,6 +196,7 @@ function volMID(volMID) {
 function volMUTE(volMUTE) {
 	bigtop.volume= 0.0;
 }
+
 
 
 
